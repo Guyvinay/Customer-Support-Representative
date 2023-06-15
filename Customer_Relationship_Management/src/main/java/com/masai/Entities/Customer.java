@@ -21,6 +21,7 @@ public class Customer { //inverse/referencing side
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+<<<<<<< HEAD
 	@Column(name = "Customer_User_Name" , nullable = false)
 	private String userName;
 	
@@ -34,6 +35,21 @@ public class Customer { //inverse/referencing side
 	private String eMail;
 	
 	@Column(name = "Customer_Address")
+=======
+	@Column(name = "CSR_User_Name" , nullable = false)
+	private String userName;
+	
+	@Column(name = "CSR_User_Pass" , nullable = false)
+	private String passWord;
+	
+	@Column(name = "CSR_Name")
+	private String name;
+	
+	@Column(name = "CSR_eMail")
+	private String eMail;
+	
+	@Column(name = "CSR_Address")
+>>>>>>> f6f95970d73304a56ea1321b8d00f68f322a85fd
 	private String address;
 	
 	@OneToMany(mappedBy = "customer"  , cascade = CascadeType.ALL)

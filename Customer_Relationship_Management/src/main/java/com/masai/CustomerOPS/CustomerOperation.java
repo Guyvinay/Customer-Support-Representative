@@ -43,6 +43,7 @@ public class CustomerOperation {
 	}
 	
     public  void customerLogin(Scanner sc) {
+<<<<<<< HEAD
     	    System.out.println();
 		    System.out.println("Enter Admin UseName ");
 		    String userName = sc.next();
@@ -51,6 +52,17 @@ public class CustomerOperation {
 		    String passWord = sc.next();
 		    System.out.println();
 		    
+=======
+		
+		    System.out.println("Enter Admin UseName ");
+		
+		    String userName = sc.next();
+		
+		    System.out.println("Enter Admin PassWord ");
+		
+		    String passWord = sc.next();
+		
+>>>>>>> f6f95970d73304a56ea1321b8d00f68f322a85fd
 		    GetCustomerCreds getCustomerCreds = new GetCustomerCredImpl();
 		
 		    List<Customer> customerUserPass = getCustomerCreds.getCustomerList();
@@ -72,6 +84,10 @@ public class CustomerOperation {
 	
 	      do {
 	    	  System.out.println("Enter Your Preference...");
+<<<<<<< HEAD
+=======
+	    	  System.out.println();
+>>>>>>> f6f95970d73304a56ea1321b8d00f68f322a85fd
 		      displayCustomerFields();
 		      opt = sc.nextInt();
 		
@@ -94,6 +110,7 @@ public class CustomerOperation {
     	      int opt ;
     		  System.out.println("Select Issue Category"
     				      +"\n"+
+<<<<<<< HEAD
     				      "1. PRODUCT ,"
     				      +"\n"+
     				      "2. SERVICE ,"
@@ -108,6 +125,22 @@ public class CustomerOperation {
     				      +"\n"
     				  );
     		  System.out.println();
+=======
+    				      "1.PRODUCT ,"
+    				      +"\n"+
+    				      "2.SERVICE ,"
+    				      +"\n"+
+    				      "3.REFERRAL ,"
+    				      +"\n"+
+    				      "4.SUPPORT ,"
+    				      +"\n"+
+    				      "5.LEAVE ,"
+    				      +"\n"+
+    				      "6.SUBMISSION ,"
+    				      +"\n"
+    				  );
+    		  
+>>>>>>> f6f95970d73304a56ea1321b8d00f68f322a85fd
         	  opt = sc.nextInt();
         	
     		  if(opt==1) cate = Category.PRODUCT;
@@ -115,8 +148,14 @@ public class CustomerOperation {
     		  else if(opt==3) cate = Category.REFERRAL;
     		  else if(opt==4) cate = Category.SUPPORT;
     		  else if(opt==5) cate = Category.LEAVE;
+<<<<<<< HEAD
     		  else cate = Category.SUBMISSION;
     		 
+=======
+    		  else if(opt==6) cate = Category.SUBMISSION;
+    		  else System.out.println("Enter defined Catehory");
+    	 
+>>>>>>> f6f95970d73304a56ea1321b8d00f68f322a85fd
     	  Issue issue = new Issue(cate , LocalDate.now() , IssueStatus.OPEN , Feedback.YET_TO_BE_CLOSED , null);
     		  
     	  CustomerService cusSer = new CustomerSerImpl();
@@ -143,7 +182,11 @@ public class CustomerOperation {
       }
 
       public static void displayCustomerFields() {
+<<<<<<< HEAD
     	  System.out.println();
+=======
+	
+>>>>>>> f6f95970d73304a56ea1321b8d00f68f322a85fd
 	      System.out.println(
 			
 		               "1. Raise an Issue"
@@ -154,6 +197,9 @@ public class CustomerOperation {
 	                           + "\n" +
 		               "0. Log out from the customer support representative account"
 			             );
+<<<<<<< HEAD
 	      System.out.println();
+=======
+>>>>>>> f6f95970d73304a56ea1321b8d00f68f322a85fd
       }
 }
