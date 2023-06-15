@@ -34,7 +34,7 @@ public class CustomerOperation {
 		System.out.println("Enter Address");
 		String address = sc.next();
 		
-		Customer cus = new Customer(userName, passWord, name, email, address , new HashSet<>());
+		Customer cus = new Customer(userName, passWord, name, email, address , new HashSet<>() , new HashSet<>());
 		
 		CustomerService cusSer = new CustomerSerImpl();
 		
@@ -80,9 +80,8 @@ public class CustomerOperation {
 		      switch(opt) {
 		
 		      case 1 -> raiseIssue(sc);
-		      case 2 -> viewAllIssuesRaiseByMe();
+		      case 2 -> viewAllIssuesRaiseByMeAndGiveFeed();
 		      case 3 -> viewStatusOfRaisedIssue();
-		      case 4-> provideFeedBackOnClosedIssue();
 		      case 0 -> System.out.println("Logged Out From Customer");
 		
 		      }
@@ -130,18 +129,19 @@ public class CustomerOperation {
 	 
       }
 
-      private static void  viewAllIssuesRaiseByMe() {
+      private static void  viewAllIssuesRaiseByMeAndGiveFeed() {
 	  
+    	  CustomerService cusSer = new CustomerSerImpl();
 	 
+    	  cusSer.viewAllIssuesAndGiveFeed(LoggedCustomerId.loggedCustomerId);
+    	  
       }
 
-      private static void  viewStatusOfRaisedIssue() {
+      private static  void viewStatusOfRaisedIssue() {
 	  
-	 
-      }
-
-      private static  void provideFeedBackOnClosedIssue() {
-	  
+    	  CustomerService cusSer = new CustomerSerImpl();
+    	  
+    	  cusSer.viewAllIssuesAndGiveFeed(0);
 	 
       }
 
@@ -151,11 +151,9 @@ public class CustomerOperation {
 			
 		               "1. Raise an Issue"
 	                           + "\n" +
-	                   "2. View All Issues Raise By Me"
+	                   "2. View All Issues Raise By Me And Impart Feedback on"
 	                           + "\n" +	  
 	                   "3. View Status Of Raised Issue"
-	                           + "\n" +
-		               "4. provide Feed Back On Closed Issue"
 	                           + "\n" +
 		               "0. Log out from the customer support representative account"
 			             );

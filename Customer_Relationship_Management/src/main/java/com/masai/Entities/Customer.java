@@ -5,13 +5,17 @@ import java.util.Set;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
+import jakarta.persistence.ManyToMany;
+
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Customer {
+public class Customer { //inverse/referencing side
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,6 +39,9 @@ public class Customer {
 	@OneToMany(mappedBy = "customer"  , cascade = CascadeType.ALL)
 	private Set<Issue> issues;
 
+	@ManyToMany(mappedBy = "customer",fetch = FetchType.EAGER )
+	private Set<Csr> csr;
+	
 	
 	public Customer() {
 		super();
@@ -42,7 +49,8 @@ public class Customer {
 	}
 
 
-	public Customer(String userName, String passWord, String name, String eMail, String address, Set<Issue> issues) {
+	public Customer(String userName, String passWord, String name, String eMail, String address, Set<Issue> issues,
+			Set<Csr> csr) {
 		super();
 		this.userName = userName;
 		this.passWord = passWord;
@@ -50,6 +58,7 @@ public class Customer {
 		this.eMail = eMail;
 		this.address = address;
 		this.issues = issues;
+		this.csr = csr;
 	}
 
 
@@ -113,13 +122,27 @@ public class Customer {
 	}
 
 
+	public Set<Csr> getCsr() {
+		return csr;
+	}
+
+
+	public void setCsr(Set<Csr> csr) {
+		this.csr = csr;
+	}
+
+
 	public int getId() {
 		return id;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", userName=" + userName + ", passWord=" + passWord + ", name=" + name
-				+ ", eMail=" + eMail + ", address=" + address + "]";
+				+ ", eMail=" + eMail + ", address=" + address +  "]";
 	}
+
+
+	
 }

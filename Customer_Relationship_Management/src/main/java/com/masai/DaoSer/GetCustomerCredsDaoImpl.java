@@ -26,7 +26,9 @@ public class GetCustomerCredsDaoImpl implements GetCustomerCredsDao{
 				
 				 resultList =  createQuery.getResultList();
 				
-				
+//				for(Customer c : resultList) {
+//					System.out.println(c);
+//				}
 			}catch(Exception e) {
 				System.out.println(e.getMessage());
 			}
