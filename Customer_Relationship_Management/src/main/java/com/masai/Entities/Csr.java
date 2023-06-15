@@ -1,11 +1,20 @@
 package com.masai.Entities;
 
 
+import java.util.HashSet;
+import java.util.Set;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -32,18 +41,27 @@ public class Csr {
 	@Column(name = "CSR_Address")
 	private String address;
 	
+	
+	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@JoinTable(name="Csr_Customer" , 
+		       joinColumns = {@JoinColumn(referencedColumnName = "id")},
+		       inverseJoinColumns = {@JoinColumn(referencedColumnName = "id")}
+			)
+	private Set<Customer> customer;
+	
 	public Csr() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Csr(String userName, String passWord, String name, String eMail, String address) {
+	public Csr(String userName, String passWord, String name, String eMail, String address, Set<Customer> customer) {
 		super();
 		this.userName = userName;
 		this.passWord = passWord;
 		this.name = name;
 		this.eMail = eMail;
 		this.address = address;
+		this.customer = customer;
 	}
 
 	public String getUserName() {
@@ -86,15 +104,25 @@ public class Csr {
 		this.address = address;
 	}
 
+	public Set<Customer> getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Set<Customer> customer) {
+		this.customer = customer;
+	}
+
 	public int getId() {
 		return id;
 	}
+
 
 	@Override
 	public String toString() {
 		return "Csr [id=" + id + ", userName=" + userName + ", passWord=" + passWord + ", name=" + name + ", eMail="
 				+ eMail + ", address=" + address + "]";
 	}
+
 
 	
 }

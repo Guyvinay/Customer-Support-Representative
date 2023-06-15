@@ -7,4 +7,5 @@ public interface CustomerService {
 
 	public void addNewCustomer(Customer cus);
 	public void createIssue(Issue issue);
+	public void viewAllIssuesAndGiveFeed(int id);
 }

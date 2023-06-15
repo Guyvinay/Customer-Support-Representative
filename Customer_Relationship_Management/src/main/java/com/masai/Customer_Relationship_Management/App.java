@@ -39,7 +39,6 @@ public class App
     		case 4 -> customerRegistratiion(sc);
     		case 0 -> System.out.println("Thanks For Using Services");
     		}
-    		
     	}while(opt!=0);
     	
     }
@@ -61,13 +60,8 @@ public class App
 		
 	}
 
-	
-
-
 	private static void customerLogin(Scanner sc) {
 		  
-		
-		
 		CustomerOperation cusOps = new CustomerOperation();
 		
 		cusOps.customerLogin(sc);

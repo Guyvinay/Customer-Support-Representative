@@ -25,4 +25,11 @@ public class CustomerSerImpl implements CustomerService{
 		cusDao.createIssue(issue);
 	}
 
+	@Override
+	public void viewAllIssuesAndGiveFeed(int id) {
+	
+		CustomerDao cusDao = new CustomerDaoImpl();
+		cusDao.viewAllIssuesAndGiveFeed(id);
+	}
+
 }

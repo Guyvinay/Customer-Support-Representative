@@ -1,8 +1,16 @@
 package com.masai.DaoSer;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import com.masai.Entities.Csr;
 import com.masai.Entities.Customer;
 import com.masai.Entities.Issue;
 import com.masai.Entities.LoggedCustomerId;
+import com.masai.Services.GetCSRCreds;
+import com.masai.Services.GetCSRCredsImpl;
 import com.masai.Utility.GetEntityManagerFactory;
 
 import jakarta.persistence.EntityManager;
@@ -25,6 +33,17 @@ public class CustomerDaoImpl implements CustomerDao{
 			em = emf.createEntityManager();
 			et = em.getTransaction();
 			
+			GetCSRCreds getCSRCreds = new GetCSRCredsImpl();
+			List<Csr> csrList = getCSRCreds.getCSRUserPass();
+			
+			for(Csr csr : csrList) {
+//				System.out.println(csr.getCustomer());
+				csr.getCustomer().add(cus);
+				cus.getCsr().add(csr);			
+				
+			}
+			
+			
 			et.begin();
 			
 			em.persist(cus);
@@ -34,7 +53,7 @@ public class CustomerDaoImpl implements CustomerDao{
 		} catch (Exception e) {
 			
 			et.rollback();
-			
+			e.printStackTrace();
 			System.out.println(e.getMessage());
 			
 		}finally {
@@ -71,6 +90,32 @@ public class CustomerDaoImpl implements CustomerDao{
 		}finally {
 			em.close();	
 		}	
+	}
+
+	@Override
+	public void viewAllIssuesAndGiveFeed(int id) {
+		
+		
+		
+		try(EntityManager em = emf.createEntityManager()){
+			
+            String getIssues = "SELECT c FROM Issue c WHERE c.customer_id=:id";
+			
+			Query createQuery = em.createQuery(getIssues);
+			
+			createQuery.setParameter("id", id);
+			
+			List<Issue> issueList = (List<Issue>) createQuery.getResultList();
+			
+			for(Issue is : issueList) {
+				System.out.println(is);
+			}
+			
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
 	}
 
 }
