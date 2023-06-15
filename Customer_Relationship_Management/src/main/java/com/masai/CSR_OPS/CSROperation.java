@@ -20,16 +20,12 @@ public class CSROperation {
 
 	public  void csrLogin(Scanner sc) {
 		
-		System.out.println();
-		
 		System.out.println("Enter Admin UseName ");
-		
 		String userName = sc.next();
 		
 		System.out.println("Enter Admin PassWord ");
-		System.out.println();
 		String passWord = sc.next();
-		
+		System.out.println();
 		GetCSRCreds getCSRCreds = new GetCSRCredsImpl();
 		
 		List<Csr> csrUserPass = getCSRCreds.getCSRUserPass();

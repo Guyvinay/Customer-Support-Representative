@@ -43,15 +43,14 @@ public class CustomerOperation {
 	}
 	
     public  void customerLogin(Scanner sc) {
-		
+    	    System.out.println();
 		    System.out.println("Enter Admin UseName ");
-		
 		    String userName = sc.next();
 		
 		    System.out.println("Enter Admin PassWord ");
-		
 		    String passWord = sc.next();
-		
+		    System.out.println();
+		    
 		    GetCustomerCreds getCustomerCreds = new GetCustomerCredImpl();
 		
 		    List<Customer> customerUserPass = getCustomerCreds.getCustomerList();
@@ -73,7 +72,6 @@ public class CustomerOperation {
 	
 	      do {
 	    	  System.out.println("Enter Your Preference...");
-	    	  System.out.println();
 		      displayCustomerFields();
 		      opt = sc.nextInt();
 		
@@ -145,7 +143,6 @@ public class CustomerOperation {
       }
 
       public static void displayCustomerFields() {
-	
     	  System.out.println();
 	      System.out.println(
 			
