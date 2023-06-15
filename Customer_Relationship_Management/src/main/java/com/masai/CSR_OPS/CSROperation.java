@@ -19,7 +19,6 @@ import com.masai.Services.GetCustomerCreds;
 public class CSROperation {
 
 	public  void csrLogin(Scanner sc) {
-<<<<<<< HEAD
 
 		System.out.println("Enter Admin UseName ");
 		String userName = sc.next();
@@ -27,17 +26,6 @@ public class CSROperation {
 		System.out.println("Enter Admin PassWord ");
 		String passWord = sc.next();
 		System.out.println();
-=======
-		
-		System.out.println("Enter Admin UseName ");
-		
-		String userName = sc.next();
-		
-		System.out.println("Enter Admin PassWord ");
-		
-		String passWord = sc.next();
-		
->>>>>>> f6f95970d73304a56ea1321b8d00f68f322a85fd
 		GetCSRCreds getCSRCreds = new GetCSRCredsImpl();
 		
 		List<Csr> csrUserPass = getCSRCreds.getCSRUserPass();
@@ -45,10 +33,7 @@ public class CSROperation {
 		csrUserPass.forEach( c -> {
 			if(c.getUserName().equals(userName)&&c.getPassWord().equals(passWord)) {	
 				System.out.println("Welcome CSR:- "+c.getName());
-<<<<<<< HEAD
 				System.out.println();
-=======
->>>>>>> f6f95970d73304a56ea1321b8d00f68f322a85fd
 				adminFieldsExc(sc);
 			  }
 		});

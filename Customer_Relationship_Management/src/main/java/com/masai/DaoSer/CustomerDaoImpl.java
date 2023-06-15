@@ -95,11 +95,9 @@ public class CustomerDaoImpl implements CustomerDao{
 	@Override
 	public void viewAllIssuesAndGiveFeed(int id) {
 		
-		
-		
 		try(EntityManager em = emf.createEntityManager()){
 			
-            String getIssues = "SELECT c FROM Issue c WHERE c.customer_id=:id";
+            String getIssues = "SELECT c FROM Issue c WHERE c.customer.id=:id";
 			
 			Query createQuery = em.createQuery(getIssues);
 			

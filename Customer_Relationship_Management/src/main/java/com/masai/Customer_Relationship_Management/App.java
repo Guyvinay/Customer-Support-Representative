@@ -18,33 +18,19 @@ public class App
     		System.out.println(
     				"Welcome To Customer Relationship Management App" 
     		                  + "\n" +
-<<<<<<< HEAD
     			  "1. Customer_Support_Representative Login"
     		                  + "\n" +
     		      "2. Customer_Support_Representative Registration"
-=======
-    			  "1. Customer Support Representative Login"
-    		                  + "\n" +
-    		      "2. Customer Support Representative Registration"
->>>>>>> f6f95970d73304a56ea1321b8d00f68f322a85fd
     		                  + "\n" +
     			  "3. Customer Login"
     		                  + "\n" +
     		      "4. Customer Register"
     		                  + "\n" +
     			  "0. Exit From App..."
-<<<<<<< HEAD
     				);
     		
     		opt = sc.nextInt();
 
-=======
-    						
-    				);
-    		
-    		opt = sc.nextInt();
-    		
->>>>>>> f6f95970d73304a56ea1321b8d00f68f322a85fd
     		switch(opt) {
     		case 1 -> csrLogin(sc); 
     		case 2 -> csrRegistratiion(sc);
@@ -82,7 +68,7 @@ public class App
 	}
 
 	private static void customerRegistratiion(Scanner sc) {
-		  
+		
 		CustomerOperation cusOps = new CustomerOperation();
 		
 		cusOps.customerRegistration(sc);
