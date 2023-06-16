@@ -81,9 +81,12 @@ public static  void viewAllIssuesAndGiveFeed(int id) {
 	public static void main(String[] args) {
 //		
 		
-		viewAllIssuesAndGiveFeed(1);
+//		viewAllIssuesAndGiveFeed(1);
+		  
 //		manageIssue(1 , IssueStatus.CLOSED);
-		
+		 byte b=10;
+		 int i = b;
+		 System.out.println(b+" "+i);
 //		List<Integer> list = new ArrayList<>();
 //		list.add(5);
 //		list.add(8);
