@@ -90,7 +90,7 @@ static EntityManagerFactory emf = GetEntityManagerFactory.getEntityManagerFactor
 		
 		EntityManager em = null;
 		EntityTransaction et = null;
-		
+		int executeUpdate = 0;
          try {
 			
 			em = emf.createEntityManager();
@@ -105,7 +105,7 @@ static EntityManagerFactory emf = GetEntityManagerFactory.getEntityManagerFactor
 			query.setParameter("id", id);
 			
 			et.begin();
-			query.executeUpdate();
+			 executeUpdate = query.executeUpdate();
 			et.commit();
 			
 		} catch (Exception e) {
@@ -119,6 +119,13 @@ static EntityManagerFactory emf = GetEntityManagerFactory.getEntityManagerFactor
 			em.close();
 			
 		}
+		
+		if(executeUpdate>0) {
+			System.out.println("Issue Status and Feedback Imparted Successfully");
+		}else {
+			System.out.println("Something Went Wrong");
+		}
+		
 	}
 
 	@Override
@@ -133,10 +140,9 @@ static EntityManagerFactory emf = GetEntityManagerFactory.getEntityManagerFactor
 			List<Issue> issueList = query.getResultList();
 			
 			for(Issue issue : issueList) {
-				System.out.println( "Customer "+issue.getCustomer().getName() +" , " +"Issue:-"+ issue.getStatus() +", Feedback " + issue.getFeedback() );
+				System.out.println( "Customer "+issue.getCustomer().getName() +" , " +"Issue:-"+ issue.getStatus() +", Feedback:- " + issue.getFeedback() );
 				
 			}
-			
 			
 		}catch(IllegalArgumentException | IllegalStateException e ) {
 			System.out.println(e.getMessage());

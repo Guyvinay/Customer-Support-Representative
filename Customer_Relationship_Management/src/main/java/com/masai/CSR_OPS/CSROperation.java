@@ -63,23 +63,23 @@ public class CSROperation {
 		
 public static void adminFieldsExc(Scanner sc) {
 		
-		int opt;
+		String opt;
 		
 		do {
 			displayAdminFields();
 			System.out.println();
 			System.out.println("Enter Your Preference...");
-			opt = sc.nextInt();
+			opt = sc.next();
 			
 			switch(opt) {
 			
-			case 1 -> viewAllIssues(sc);
-			case 2 -> viewAllCustomers();
-			case 3 -> viewFeedBackByCustomers();
-			
+			case "1" -> viewAllIssues(sc);
+			case "2" -> viewAllCustomers();
+			case "3" -> viewFeedBackByCustomers();
+			case "0" -> System.out.println("Logged Out From Admin Account");
 			}
 			
-		}while(opt!=0);
+		}while(!opt.equals("0"));
 		
 		
 	}
@@ -137,7 +137,7 @@ private static void viewAllIssues(Scanner sc) {
 	else if(choice == 3) feed = Feedback.ISSUE_NOT_MEANT_TO_BE_ADDRESSED;
 	else if(choice == 4) feed = Feedback.WRONG_CATEGORY_CHOOSEN;
 	else if(choice == 5) feed = Feedback.WAS_HORRIBLE_ADDRESSING_ISSUE;
-	else if(choice == 6) feed = Feedback.DO_NOT_RAISE_ISSUE_EVER_AGAIN_PLEASE;
+	else feed = Feedback.DO_NOT_RAISE_ISSUE_EVER_AGAIN_PLEASE;
 	
 	csrSer.manageIssue(id , rev , feed);
 } 
@@ -145,15 +145,8 @@ private static void viewAllIssues(Scanner sc) {
 private static void viewAllCustomers() {
 	 
 GetCustomerCreds getCustomerCreds = new GetCustomerCredImpl();
-	
 	List<Customer> customerList = getCustomerCreds.getCustomerList();
-	
-	
-	for(Customer c :customerList ) {
-		System.out.println(c);
-	}
-	
-	
+	customerList.forEach(System.out::println);
 }
 
 private static void viewFeedBackByCustomers() {

@@ -68,30 +68,30 @@ public class CustomerOperation {
 
       public static void customerFieldsExc(Scanner sc) {
 	
-	      int opt;
+	      String opt;
 	
 	      do {
 	    	  System.out.println("Enter Your Preference...");
 		      displayCustomerFields();
-		      opt = sc.nextInt();
+		      opt = sc.next();
 		
 		      switch(opt) {
 		
-		      case 1 -> raiseIssue(sc);
-		      case 2 -> viewAllIssuesRaiseByMeAndGiveFeed();
-		      case 3 -> viewStatusOfRaisedIssue();
-		      case 0 -> System.out.println("Logged Out From Customer");
+		      case "1" -> raiseIssue(sc);
+		      case "2" -> viewAllIssuesRaiseByMeAndGiveFeed(sc);
+		      case "3" -> viewStatusOfRaisedIssue();
+		      case "0" -> System.out.println("Logged Out From Customer");
 		
 		      }
 		
-	      }while(opt!=0);
+	      }while(!opt.equals("0"));
 	
 	
       }
 
       private static  void raiseIssue(Scanner sc) {
 	          Category cate = null;
-    	      int opt ;
+    	      String opt ;
     		  System.out.println("Select Issue Category"
     				      +"\n"+
     				      "1. PRODUCT ,"
@@ -108,13 +108,13 @@ public class CustomerOperation {
     				      +"\n"
     				  );
     		  System.out.println();
-        	  opt = sc.nextInt();
+        	  opt = sc.next();
         	
-    		  if(opt==1) cate = Category.PRODUCT;
-    		  else if(opt==2) cate = Category.SERVICE;
-    		  else if(opt==3) cate = Category.REFERRAL;
-    		  else if(opt==4) cate = Category.SUPPORT;
-    		  else if(opt==5) cate = Category.LEAVE;
+    		  if(opt=="1") cate = Category.PRODUCT;
+    		  else if(opt=="2") cate = Category.SERVICE;
+    		  else if(opt=="3") cate = Category.REFERRAL;
+    		  else if(opt=="4") cate = Category.SUPPORT;
+    		  else if(opt=="5") cate = Category.LEAVE;
     		  else cate = Category.SUBMISSION;
     		 
     	  Issue issue = new Issue(cate , LocalDate.now() , IssueStatus.OPEN , Feedback.YET_TO_BE_CLOSED , null);
@@ -126,11 +126,37 @@ public class CustomerOperation {
 	 
       }
 
-      private static void  viewAllIssuesRaiseByMeAndGiveFeed() {
+      private static void  viewAllIssuesRaiseByMeAndGiveFeed(Scanner sc) {
 	  
     	  CustomerService cusSer = new CustomerSerImpl();
-	 
-    	  cusSer.viewAllIssuesAndGiveFeed(LoggedCustomerId.loggedCustomerId);
+    	  int id = LoggedCustomerId.loggedCustomerId;
+    	  
+    	  Feedback feed;
+    	  List<Issue> issueList = cusSer.viewAllIssuesAndGiveFeed(id);
+    	  issueList.forEach(System.out::println);
+    	  
+    	  System.out.println(
+    			  "Enter id of Issue you want give feedback to (Issue Must Be Closed) :-"
+    			  );
+    	  int opt = sc.nextInt();
+    	  System.out.println("Choose Feedback Options...");
+    	  System.out.println(
+    			  "1. GREAT_EXP "
+    			     +"\n"+
+    			     "2. GOOD_EXP "
+    			     +"\n"+
+    			     "3. BAD_EXP "
+    			     +"\n"+
+    			     "Press Any. HORRIBLE_EXP "
+    			  );
+    	  String choice = sc.next();
+    	  if(choice.equals("1")) feed = Feedback.GREAT_EXP;
+    	  else if(choice.equals("2")) feed = Feedback.GOOD_EXP;
+    	  else  if(choice.equals("3")) feed = Feedback.BAD_EXP;
+    	  else  feed = Feedback.HORRIBLE_EXP;
+    	  
+    	  cusSer.giveFeedBackToIssues(opt , feed);
+    	  
     	  
       }
 
@@ -138,12 +164,16 @@ public class CustomerOperation {
 	  
     	  CustomerService cusSer = new CustomerSerImpl();
     	  
-    	  cusSer.viewAllIssuesAndGiveFeed(0);
+    	  int id = LoggedCustomerId.loggedCustomerId;
+    	  
+    	  List<Issue> issueList =  cusSer.viewAllIssuesAndGiveFeed(id);
 	 
+    	  issueList.forEach(i->System.out.println("Issue id:- "+i.getId()+", Status of the Issue:- "+i.getStatus()));
+    	  
       }
 
       public static void displayCustomerFields() {
-    	  System.out.println();
+
 	      System.out.println(
 			
 		               "1. Raise an Issue"
@@ -152,8 +182,8 @@ public class CustomerOperation {
 	                           + "\n" +	  
 	                   "3. View Status Of Raised Issue"
 	                           + "\n" +
-		               "0. Log out from the customer support representative account"
+		               "0. Log out from the customer account"
 			             );
-	      System.out.println();
+
       }
 }
