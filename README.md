@@ -7,12 +7,12 @@
 <h4>2. Customer</h4>
 <h5>Role of Customer Support Representative</h5>
 <h5>1. Register for a customer support representative account by providing necessary information.</h5>
-<h6>2. Log in to the customer support representative account using registered credentials.</h6>
-<h6>3. View and manage the issues raised by customers.</h6> 
-<h6>4. Reply to customer issues, providing necessary assistance and information.</h6>
-<h6>5. Close the customer issues after resolution.</h6>
-<h6>View feedback given by customers on closed issues.</h6>
-<h6>Log out from the customer support representative account.</h6>
+<h5>2. Log in to the customer support representative account using registered credentials.</h5>
+<h5>3. View and manage the issues raised by customers.</h5> 
+<h5>4. Reply to customer issues, providing necessary assistance and information.</h5>
+<h5>5. Close the customer issues after resolution.</h5>
+<h5>View feedback given by customers on closed issues.</h5>
+<h5>Log out from the customer support representative account.</h5>
 
 
 
