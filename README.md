@@ -5,29 +5,21 @@
 <h3>Types of Users</h3>
 <h4>1. Customer Support Representative</h4>
 <h4>2. Customer</h4>
-<h5>Role of Customer Support Representative</h5>
+<h4>Role of Customer Support Representative</h4>
 <h5>1. Register for a customer support representative account by providing necessary information.</h5>
 <h5>2. Log in to the customer support representative account using registered credentials.</h5>
 <h5>3. View and manage the issues raised by customers.</h5> 
 <h5>4. Reply to customer issues, providing necessary assistance and information.</h5>
 <h5>5. Close the customer issues after resolution.</h5>
-<h5>View feedback given by customers on closed issues.</h5>
-<h5>Log out from the customer support representative account.</h5>
+<h5>6. View feedback given by customers on closed issues.</h5>
+<h5>7. Log out from the customer support representative account.</h5>
 
 
-
-
-
-
-
-
-
-Role of Customer
-Register for a customer account by providing necessary information.
-Log in to the customer account using registered credentials.
-Raise an issue by providing a description of the problem.
-View the status of the raised issue, whether it is open or closed.
-Provide feedback once the issue is closed.
-Log out from the customer account.
-
+<h4>Role of Customer</h4>
+<h5>1. Register for a customer account by providing necessary information.</h5>
+<h5>2. Log in to the customer account using registered credentials.</h5>
+<h5>3. Raise an issue by providing a description of the problem.</h5> 
+<h5>4. View the status of the raised issue, whether it is open or closed.</h5>
+<h5>5. Provide feedback once the issue is closed.</h5>
+<h5>6. Log out from the customer account.</h5>
 
