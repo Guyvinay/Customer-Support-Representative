@@ -24,5 +24,6 @@
 <h5>6. Log out from the customer account.</h5>
 
 <h3>Schema Below</h3>
-![image](https://github.com/Guyvinay/discreet-volcano-9320/assets/119345842/69926df3-8159-4cde-98f4-a6fe0433c390)
+![Screenshot 2023-06-19 014503](https://github.com/Guyvinay/discreet-volcano-9320/assets/119345842/b45632fe-7033-40a2-a6dc-bc1530f61b16)
+
 
