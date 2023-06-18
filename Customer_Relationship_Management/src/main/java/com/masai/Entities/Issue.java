@@ -112,7 +112,7 @@ public class Issue {
 	@Override
 	public String toString() {
 		return "Issue [id=" + id + ", category=" + category + ", createdAt=" + createdAt + ", status=" + status
-				+ ", feedback=" + feedback + ", customer=" + customer + "]";
+				+ ", feedback=" + feedback + ", customer=" + customer.getName() + "]";
 	}
 	
 	

@@ -12,7 +12,7 @@ public class App
     {
      
     	Scanner sc = new Scanner(System.in);
-    	int opt;
+    	String opt;
     	
     	do {
     		System.out.println(
@@ -29,16 +29,16 @@ public class App
     			  "0. Exit From App..."
     				);
     		
-    		opt = sc.nextInt();
+    		opt = sc.next();
 
     		switch(opt) {
-    		case 1 -> csrLogin(sc); 
-    		case 2 -> csrRegistratiion(sc);
-    		case 3 -> customerLogin(sc);
-    		case 4 -> customerRegistratiion(sc);
-    		case 0 -> System.out.println("Thanks For Using Services");
+    		case "1" -> csrLogin(sc); 
+    		case "2" -> csrRegistratiion(sc);
+    		case "3" -> customerLogin(sc);
+    		case "4" -> customerRegistratiion(sc);
+    		case "0" -> System.out.println("Thanks For Using Services");
     		}
-    	}while(opt!=0);
+    	}while(!opt.equals("0"));
     	
     }
     
