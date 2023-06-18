@@ -23,3 +23,16 @@
 <h5>5. Provide feedback once the issue is closed.</h5>
 <h5>6. Log out from the customer account.</h5>
 
+<h3>Schema Below</h3>
+<img src="https://github.com/Guyvinay/discreet-volcano-9320/assets/119345842/b45632fe-7033-40a2-a6dc-bc1530f61b16" />
+
+**Feel free to explore the code and adapt it to your specific requirements. Enjoy managing and organizing your recipes with the Recipe Management System!**
+
+**Note:- This is a basic project so I didn't think much about data security.**
+
+**"Suggestions and project Improvements are Invited!"**  
+  
+**Thanks a lot**   
+**This is a solo Project**
+
+**Project created by => Deependra yadav**
