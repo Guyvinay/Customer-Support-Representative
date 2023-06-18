@@ -1,8 +1,8 @@
 package com.masai.DaoSer;
 
-import java.util.HashSet;
+
 import java.util.List;
-import java.util.Set;
+
 
 import com.masai.Entities.Csr;
 import com.masai.Entities.Customer;
@@ -28,7 +28,7 @@ static EntityManagerFactory emf = GetEntityManagerFactory.getEntityManagerFactor
 		
 		EntityManager em = null;
 		EntityTransaction et = null;
-		
+		String status = "CSR Couldn't registered";
 		try {
 			
 			em = emf.createEntityManager();
@@ -52,6 +52,8 @@ static EntityManagerFactory emf = GetEntityManagerFactory.getEntityManagerFactor
 			
 			et.commit();
 			
+			status = "CSR registered "+ csr.getName()+" Successfully";
+			
 		} catch (Exception e) {
 			
 			et.rollback();
@@ -64,7 +66,7 @@ static EntityManagerFactory emf = GetEntityManagerFactory.getEntityManagerFactor
 			
 		}
 		
-		
+		System.out.println(status);
 	}
 
 	@Override

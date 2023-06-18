@@ -29,7 +29,7 @@ public class CustomerDaoImpl implements CustomerDao{
 		
 		EntityManager em = null;
 		EntityTransaction et = null;
-		
+		String status = "Customer Couldn't registered";
 		try {
 			
 			em = emf.createEntityManager();
@@ -52,6 +52,8 @@ public class CustomerDaoImpl implements CustomerDao{
 			
 			et.commit();
 			
+			status = "Customer "+ cus.getName() + "Registered Successfully";
+			
 		} catch (Exception e) {
 			
 			et.rollback();
@@ -59,10 +61,9 @@ public class CustomerDaoImpl implements CustomerDao{
 			System.out.println(e.getMessage());
 			
 		}finally {
-			
 			em.close();
-			
 		}
+		System.out.println(status);
 	}
 
 	@Override
