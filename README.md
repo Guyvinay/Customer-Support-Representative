@@ -15,7 +15,6 @@
 <h5>6. View feedback given by customers on closed issues.</h5>
 <h5>7. Log out from the customer support representative account.</h5>
 </hr>
-
 <h4>Role of Customer</h4>
 <h5>1. Register for a customer account by providing necessary information.</h5>
 <h5>2. Log in to the customer account using registered credentials.</h5>
