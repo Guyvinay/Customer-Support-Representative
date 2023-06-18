@@ -9,6 +9,8 @@ import com.masai.Entities.Csr;
 import com.masai.Entities.Customer;
 import com.masai.Entities.Issue;
 import com.masai.Entities.LoggedCustomerId;
+import com.masai.Enum.Feedback;
+import com.masai.Enum.IssueStatus;
 import com.masai.Services.GetCSRCreds;
 import com.masai.Services.GetCSRCredsImpl;
 import com.masai.Utility.GetEntityManagerFactory;
@@ -93,7 +95,9 @@ public class CustomerDaoImpl implements CustomerDao{
 	}
 
 	@Override
-	public void viewAllIssuesAndGiveFeed(int id) {
+	public List<Issue> viewAllIssuesAndGiveFeed(int id) {
+		
+		List<Issue> issueList = null;
 		
 		try(EntityManager em = emf.createEntityManager()){
 			
@@ -103,17 +107,55 @@ public class CustomerDaoImpl implements CustomerDao{
 			
 			createQuery.setParameter("id", id);
 			
-			List<Issue> issueList = (List<Issue>) createQuery.getResultList();
-			
-			for(Issue is : issueList) {
-				System.out.println(is);
-			}
+			 issueList = (List<Issue>) createQuery.getResultList();
 			
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
+		return issueList;
 		
+	}
+
+	@Override
+	public void giveFeedBackToIssues(int id, Feedback feed) {
+		EntityManager em = null;
+		EntityTransaction et = null;
+		int executeUpdate = 0 ;
+         try {
+			
+			em = emf.createEntityManager();
+			et = em.getTransaction();
+			
+			String que = "UPDATE Issue i SET feedback=:feed WHERE id=:id AND status=:stat";
+
+			Query query = em.createQuery(que);
+				
+			query.setParameter("feed", feed);
+			query.setParameter("id", id);
+			query.setParameter("stat", IssueStatus.CLOSED);
+			
+			et.begin();
+			executeUpdate = query.executeUpdate();
+			et.commit();
+			
+		} catch (Exception e) {
+			
+			et.rollback();
+			
+			System.out.println(e.getMessage());
+			
+		}finally {
+			
+			em.close();
+			
+		}
 		
+         if(executeUpdate > 0 ) {
+        	 System.out.println("Feedback Successfully imparted");
+         }else {
+        	 System.out.println("Feedback Couldn't imparted");
+         }
+         
 	}
 
 }
