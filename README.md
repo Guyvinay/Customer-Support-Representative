@@ -23,3 +23,6 @@
 <h5>5. Provide feedback once the issue is closed.</h5>
 <h5>6. Log out from the customer account.</h5>
 
+<h3>Schema Below</h3>
+![image](https://github.com/Guyvinay/discreet-volcano-9320/assets/119345842/69926df3-8159-4cde-98f4-a6fe0433c390)
+
