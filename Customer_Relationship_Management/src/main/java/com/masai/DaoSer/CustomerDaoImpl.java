@@ -52,7 +52,7 @@ public class CustomerDaoImpl implements CustomerDao{
 			
 			et.commit();
 			
-			status = "Customer "+ cus.getName() + "Registered Successfully";
+			status = "Customer "+ cus.getName() + " Registered Successfully";
 			
 		} catch (Exception e) {
 			

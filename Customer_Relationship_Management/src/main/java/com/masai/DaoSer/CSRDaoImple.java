@@ -52,7 +52,7 @@ static EntityManagerFactory emf = GetEntityManagerFactory.getEntityManagerFactor
 			
 			et.commit();
 			
-			status = "CSR registered "+ csr.getName()+" Successfully";
+			status = "CSR "+ csr.getName()+" registered Successfully";
 			
 		} catch (Exception e) {
 			

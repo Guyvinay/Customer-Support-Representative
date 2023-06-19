@@ -110,11 +110,11 @@ public class CustomerOperation {
     		  System.out.println();
         	  opt = sc.next();
         	
-    		  if(opt=="1") cate = Category.PRODUCT;
-    		  else if(opt=="2") cate = Category.SERVICE;
-    		  else if(opt=="3") cate = Category.REFERRAL;
-    		  else if(opt=="4") cate = Category.SUPPORT;
-    		  else if(opt=="5") cate = Category.LEAVE;
+    		  if(opt.equals("1")) cate = Category.PRODUCT;
+    		  else if(opt.equals("2")) cate = Category.SERVICE;
+    		  else if(opt.equals("3")) cate = Category.REFERRAL;
+    		  else if(opt.equals("4")) cate = Category.SUPPORT;
+    		  else if(opt.equals("5")) cate = Category.LEAVE;
     		  else cate = Category.SUBMISSION;
     		 
     	  Issue issue = new Issue(cate , LocalDate.now() , IssueStatus.OPEN , Feedback.YET_TO_BE_CLOSED , null);
