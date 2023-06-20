@@ -1,5 +1,8 @@
 <h1>Customer Relationship Management (CRM) System</h1>
 </br>
+<img src = "https://github.com/Guyvinay/discreet-volcano-9320/assets/119345842/f901ab75-d5bb-4455-ade4-9d2e9ba25aea"/>
+
+
 <h3>Domain Description</h3>
 <h4>The Console-based Customer Relationship Management (CRM) System is a software solution designed to enhance customer interactions, improve issue resolution, and overall customer satisfaction. The system aims to provide businesses with tools to efficiently manage customer issues and provide effective customer support. The CRM system will be developed using Java programming language, MySQL as the database management system, and Hibernate as the Object-Relational Mapping (ORM) framework.</h4>
 </hr>
