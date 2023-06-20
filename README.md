@@ -24,7 +24,10 @@
 <h5>6. Log out from the customer account.</h5>
 
 <h3>Schema Below</h3>
+
 <img src="https://github.com/Guyvinay/discreet-volcano-9320/assets/119345842/b45632fe-7033-40a2-a6dc-bc1530f61b16" />
+</hr>
+
 
 **Feel free to explore the code and adapt it to your specific requirements. Enjoy managing and organizing your recipes with the Recipe Management System!**
 
