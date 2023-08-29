@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import com.masai.Entities.Csr;
 import com.masai.Entities.Customer;
 import com.masai.Entities.Issue;
@@ -29,24 +31,28 @@ public class CSROperation {
 		
 		GetCSRCreds getCSRCreds = new GetCSRCredsImpl();
 		
-//		List<Csr> csrUserPass = getCSRCreds.getCSRUserPass();
-		Csr csr = getCSRCreds.getCSRDetails(userName, passWord);
+		List<Csr> csrUserPass = getCSRCreds.getCSRUserPass();
+//		String pass = BCrypt.hashpw(passWord, BCrypt.gensalt());
+//		Csr csr = getCSRCreds.getCSRDetails(userName, passWord );
+//		System.out.println(pass);
+//		System.out.println(csr);
+//		System.out.println(csrUserPass);
+		csrUserPass.forEach( c -> {
+			if(c.getUserName().equals(userName)&&c.getPassWord().equals(passWord)) {
+//			if(c.getUserName().equals(userName)&&BCrypt.checkpw(passWord, c.getPassWord())) {
+				System.out.println("Welcome CSR:- "+c.getName());
+				System.out.println();
+				adminFieldsExc(sc);
+			  }
+		});
 		
-//		csrUserPass.forEach( c -> {
-//			if(c.getUserName().equals(userName)&&c.getPassWord().equals(passWord)) {	
-//				System.out.println("Welcome CSR:- "+c.getName());
-//				System.out.println();
-//				adminFieldsExc(sc);
-//			  }
-//		});
-		
-		if(csr.getUserName().equals(userName)&&csr.getPassWord().equals(passWord)) {	
-			System.out.println("Welcome CSR:- "+csr.getName());
-			System.out.println();
-			adminFieldsExc(sc);
-		}else {
-			System.out.println(csr.getName()+" Not Found");
-		}
+//		if(csr.getUserName().equals(userName)&&csr.getPassWord().equals(passWord)) {	
+//			System.out.println("Welcome CSR:- "+csr.getName());
+//			System.out.println();
+//			adminFieldsExc(sc);
+//		}else {
+//			System.out.println(csr.getName()+" Not Found");
+//		}
 	}
 	
 	public  void csrRegistratiion(Scanner sc) {
@@ -62,7 +68,7 @@ public class CSROperation {
 		System.out.println("Enter Address");
 		String address = sc.next();
 		
-		Csr csr = new Csr(userName, passWord, name, email, address, new HashSet<>());
+		Csr csr = new Csr(userName, BCrypt.hashpw(passWord,BCrypt.gensalt() ), name, email, address, new HashSet<>());
 		
 		CSRServices csrSer = new CSRServicesImple();
 		
