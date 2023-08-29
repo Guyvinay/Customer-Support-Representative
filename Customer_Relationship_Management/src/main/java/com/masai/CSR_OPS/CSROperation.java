@@ -26,18 +26,27 @@ public class CSROperation {
 		System.out.println("Enter Admin PassWord ");
 		String passWord = sc.next();
 		System.out.println();
+		
 		GetCSRCreds getCSRCreds = new GetCSRCredsImpl();
 		
-		List<Csr> csrUserPass = getCSRCreds.getCSRUserPass();
+//		List<Csr> csrUserPass = getCSRCreds.getCSRUserPass();
+		Csr csr = getCSRCreds.getCSRDetails(userName, passWord);
 		
-		csrUserPass.forEach( c -> {
-			if(c.getUserName().equals(userName)&&c.getPassWord().equals(passWord)) {	
-				System.out.println("Welcome CSR:- "+c.getName());
-				System.out.println();
-				adminFieldsExc(sc);
-			  }
-		});
-			
+//		csrUserPass.forEach( c -> {
+//			if(c.getUserName().equals(userName)&&c.getPassWord().equals(passWord)) {	
+//				System.out.println("Welcome CSR:- "+c.getName());
+//				System.out.println();
+//				adminFieldsExc(sc);
+//			  }
+//		});
+		
+		if(csr.getUserName().equals(userName)&&csr.getPassWord().equals(passWord)) {	
+			System.out.println("Welcome CSR:- "+csr.getName());
+			System.out.println();
+			adminFieldsExc(sc);
+		}else {
+			System.out.println(csr.getName()+" Not Found");
+		}
 	}
 	
 	public  void csrRegistratiion(Scanner sc) {

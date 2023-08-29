@@ -34,6 +34,25 @@ public class GetCSRCredsdDaoImp implements GetCSRCredsdDao{
 		return resultList;
 	}
 
+	@Override
+	public Csr getCSRDetails(String userName , String passWord) {
+		Csr csr = null;
+    try(EntityManager em = emf.createEntityManager()){
+			
+            String getCredsQue = "SELECT c FROM Csr c WHERE c.userName=:userName AND c.passWord=:passWord";
+			
+			Query createQuery = em.createQuery(getCredsQue);
+			createQuery.setParameter("userName", userName);
+			createQuery.setParameter("passWord", passWord);
+			 csr =  (Csr) createQuery.getSingleResult();
+//			System.out.println(csr);
+			
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return csr;
+	}
+
 
 	
 }

@@ -18,4 +18,11 @@ public class GetCSRCredsImpl implements GetCSRCreds{
 		return csrUserPass;
 	}
 
+	@Override
+	public Csr getCSRDetails(String userName, String passWord) {
+		GetCSRCredsdDao getCSRCreds = new GetCSRCredsdDaoImp();
+		Csr csr = getCSRCreds.getCSRDetails(userName, passWord);
+		return csr;
+	}
+
 }
